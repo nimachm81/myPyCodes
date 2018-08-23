@@ -1,0 +1,180 @@
+## EvolAlgs.py
+## Evolutionary algorithms tools and wrappers
+
+__all__ = ["decodeBinToFloat", "codeFloatToBin", "decodeBinToFloat_multi",
+            "codeFloatToBin_multi",
+            "geneticAlg"]
+
+
+from ast import literal_eval
+
+
+def checkBinarySequence(seq_bin):
+    for b in seq_bin:
+        if not(b == 0 or b == 1):
+            return False
+    return True
+
+def decodeBinToFloat(seq_bin, x_0, x_1):
+    """
+    It converts a sequence of zeros and ones to a float between x_0 and x_1
+    """
+    str1 = '0b'+''.join(map(str, seq_bin))
+    b_val = float(literal_eval(str1))
+    b_max = float(2**len(seq_bin) - 1)
+    x = x_0 + b_val/b_max*(x_1 - x_0)
+    return x
+    
+def codeFloatToBin(x, x_0, x_1, seq_len):
+    """
+    converts a float x between x_0 and x_1 to a binary sequence of length seq_len
+    """
+    if  not(x_0 <= x <= x_1):
+        raise ValueError("x out of range")
+    b_max = float(2**seq_len - 1)
+    b_val = int((x - x_0)/(x_1 - x_0)*b_max)
+    if b_val>b_max:
+        b_val = int(b_max)
+    seq_str = "{0:b}".format(b_val)
+    chars = []
+    chars.extend(seq_str)
+    seq_bin = [literal_eval(c) for c in chars]
+    seq_bin = [0]*(seq_len-len(seq_bin)) + seq_bin
+    return seq_bin
+    
+    
+def decodeBinToFloat_multi(seq_bin, intervals, seq_lens):
+    if sum(seq_lens)!=len(seq_bin):
+        raise ValueError("sum(seq_lens)!=len(seq_bin)")
+    x = []
+    start = 0
+    for i in range(len(seq_lens)):
+        x.append(decodeBinToFloat(seq_bin[start:start+seq_lens[i]],
+                intervals[i][0], intervals[i][1]))
+        start += seq_lens[i]
+    return x
+    
+def codeFloatToBin_multi(x, intervals, seq_lens):
+    b = []
+    for i in range(len(x)):
+        b = b + codeFloatToBin(x[i], intervals[i][0], intervals[i][1],
+            seq_lens[i])
+    return b
+    
+
+##--------------------------  Genetic algorithm ----------------
+import random
+from deap import base
+from deap import creator
+from deap import tools
+import multiprocessing
+
+def geneticAlg(f_eval, intervals, n_bits, pop_size=100, pr_cross=0.5, 
+        pr_mut=0.2, n_gen=40, pr_bit_mut=0.05, tourno_size=3, 
+        maximize=True, vbose=False, parallel=False):
+
+    wghts = (1.0,)
+    if not maximize:
+        wghts = (-1.0,)
+    creator.create("FitnessMax", base.Fitness, weights=wghts)
+    creator.create("Individual", list, fitness=creator.FitnessMax)
+
+    toolbox = base.Toolbox()
+
+    if parallel:
+        print("initializing multiprocessing")
+        pool = multiprocessing.Pool()
+        toolbox.register("map", pool.map)
+
+    # Attribute generator
+    toolbox.register("attr_bool", random.randint, 0, 1)
+    # Structure initializers
+    toolbox.register("individual", tools.initRepeat, creator.Individual, 
+        toolbox.attr_bool, sum(n_bits))
+    toolbox.register("population", tools.initRepeat, list, toolbox.individual)
+
+    def f_eval_bin(individual):
+        x = decodeBinToFloat_multi(individual, intervals, n_bits)
+        return [f_eval(x)]
+
+    # Operator registering
+    toolbox.register("evaluate", f_eval_bin)
+    toolbox.register("mate", tools.cxTwoPoint)
+    toolbox.register("mutate", tools.mutFlipBit, indpb=pr_bit_mut)
+    toolbox.register("select", tools.selTournament, tournsize=tourno_size)
+
+    random.seed()
+    
+    pop = toolbox.population(n=pop_size)
+    CXPB, MUTPB, NGEN = pr_cross, pr_mut, n_gen
+        
+    print("Start of evolution")
+    
+    # Evaluate the entire population
+    fitnesses = list(map(toolbox.evaluate, pop))
+    for ind, fit in zip(pop, fitnesses):
+        ind.fitness.values = fit
+    
+    if vbose:
+        print("  Evaluated %i individuals" % len(pop))
+    
+    # Begin the evolution
+    for g in range(NGEN):
+        if vbose:
+            print("-- Generation %i --" % g)
+        
+        # Select the next generation individuals
+        offspring = toolbox.select(pop, len(pop))
+        # Clone the selected individuals
+        offspring = list(map(toolbox.clone, offspring))
+    
+        # Apply crossover and mutation on the offspring
+        for child1, child2 in zip(offspring[::2], offspring[1::2]):
+            if random.random() < CXPB:
+                toolbox.mate(child1, child2)
+                del child1.fitness.values
+                del child2.fitness.values
+
+        for mutant in offspring:
+            if random.random() < MUTPB:
+                toolbox.mutate(mutant)
+                del mutant.fitness.values
+    
+        # Evaluate the individuals with an invalid fitness
+        invalid_ind = [ind for ind in offspring if not ind.fitness.valid]
+        fitnesses = map(toolbox.evaluate, invalid_ind)
+        for ind, fit in zip(invalid_ind, fitnesses):
+            ind.fitness.values = fit
+        if vbose:
+            print("  Evaluated %i individuals" % len(invalid_ind))
+        
+        # The population is entirely replaced by the offspring
+        pop[:] = offspring
+        
+        # Gather all the fitnesses in one list and print the stats
+        fits = [ind.fitness.values[0] for ind in pop]
+        
+        length = len(pop)
+        mean = sum(fits) / length
+        sum2 = sum(x*x for x in fits)
+        std = abs(sum2 / length - mean**2)**0.5
+        if vbose:
+            print("  Min %s" % min(fits))
+            print("  Max %s" % max(fits))
+            print("  Avg %s" % mean)
+            print("  Std %s" % std)
+    print("-- End of (successful) evolution --")
+    
+    best_ind = tools.selBest(pop, 1)[0]
+    x_best = decodeBinToFloat_multi(best_ind, intervals, n_bits)
+    print("Best individual is %s, %s" % (x_best, best_ind.fitness.values))
+    return [x_best, best_ind.fitness.values[0]]
+
+
+
+
+
+
+
+
+ 

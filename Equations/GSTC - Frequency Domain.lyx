@@ -1,0 +1,294 @@
+#LyX 2.1 created this file. For more info see http://www.lyx.org/
+\lyxformat 474
+\begin_document
+\begin_header
+\textclass article
+\use_default_options true
+\maintain_unincluded_children false
+\language english
+\language_package default
+\inputencoding auto
+\fontencoding global
+\font_roman default
+\font_sans default
+\font_typewriter default
+\font_math auto
+\font_default_family default
+\use_non_tex_fonts false
+\font_sc false
+\font_osf false
+\font_sf_scale 100
+\font_tt_scale 100
+\graphics default
+\default_output_format default
+\output_sync 0
+\bibtex_command default
+\index_command default
+\paperfontsize default
+\use_hyperref false
+\papersize default
+\use_geometry false
+\use_package amsmath 1
+\use_package amssymb 1
+\use_package cancel 1
+\use_package esint 1
+\use_package mathdots 1
+\use_package mathtools 1
+\use_package mhchem 1
+\use_package stackrel 1
+\use_package stmaryrd 1
+\use_package undertilde 1
+\cite_engine basic
+\cite_engine_type default
+\biblio_style plain
+\use_bibtopic false
+\use_indices false
+\paperorientation portrait
+\suppress_date false
+\justification true
+\use_refstyle 1
+\index Index
+\shortcut idx
+\color #008000
+\end_index
+\secnumdepth 3
+\tocdepth 3
+\paragraph_separation indent
+\paragraph_indentation default
+\quotes_language english
+\papercolumns 1
+\papersides 1
+\paperpagestyle default
+\tracking_changes false
+\output_changes false
+\html_math_output 0
+\html_css_as_file 0
+\html_be_strict false
+\end_header
+
+\begin_body
+
+\begin_layout Standard
+\begin_inset Formula $\hat{\mathbf{z}}\times\left(\mathbf{H}^{+}-\mathbf{H}^{-}\right)=\frac{\partial}{\partial t}\mathbf{P}_{T}-\mathbf{n}\times\nabla M_{n}$
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula $\mathbf{\hat{z}}\times\left(\mathbf{E}^{+}-\mathbf{E}^{-}\right)=-\mu_{0}\frac{\partial}{\partial t}\mathbf{M}_{T}-\frac{1}{\epsilon_{0}}\mathbf{n}\times\nabla P_{n}$
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+---
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula $\hat{\mathbf{z}}\times\left(\mathbf{H}^{+}-\mathbf{H}^{-}\right)=i\omega\mathbf{P}_{T}-\mathbf{n}\times\nabla M_{n}$
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula $\mathbf{\hat{z}}\times\left(\mathbf{E}^{+}-\mathbf{E}^{-}\right)=-\mu_{0}i\omega\mathbf{M}_{T}-\frac{1}{\epsilon_{0}}\mathbf{n}\times\nabla P_{n}$
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+spectral domain transition conditions
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula $\mathbf{E}^{i}\left(\mathbf{r},t\right)=\int\tilde{\mathbf{E}}^{i}\left(\mathbf{k}_{T},\omega\right)e^{i\omega t-i\mathbf{k}\cdot\mathbf{r}}d\omega d\mathbf{k}_{T}$
+\end_inset
+
+ .........
+ 
+\begin_inset Formula $\mathbf{H}^{i}\left(\mathbf{r},t\right)=\frac{1}{\omega\mu}\int\left(\mathbf{k}_{T}+k_{z}\hat{\mathbf{z}}\right)\times\tilde{\mathbf{E}}^{i}\left(\mathbf{k}_{T},\omega\right)e^{i\omega t-i\mathbf{k}\cdot\mathbf{r}}d\omega d\mathbf{k}_{T}$
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula $\mathbf{E}^{r}\left(\mathbf{r},t\right)=\int\tilde{\mathbf{E}}^{r}\left(\mathbf{k}_{T},\omega\right)e^{i\omega t+i\mathbf{k}\cdot\mathbf{r}}d\omega d\mathbf{k}_{T}$
+\end_inset
+
+ .......
+ 
+\begin_inset Formula $\mathbf{H}^{r}\left(\mathbf{r},t\right)=\frac{1}{\omega\mu}\int\left(\mathbf{k}_{T}-k_{z}\hat{\mathbf{z}}\right)\times\tilde{\mathbf{E}}^{r}\left(\mathbf{k}_{T},\omega\right)e^{i\omega t+i\mathbf{k}\cdot\mathbf{r}}d\omega d\mathbf{k}_{T}$
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula $\mathbf{E}^{t}\left(\mathbf{r},t\right)=\int\tilde{\mathbf{E}}^{t}\left(\mathbf{k}_{T},\omega\right)e^{i\omega t-i\mathbf{k}\cdot\mathbf{r}}d\omega d\mathbf{k}_{T}$
+\end_inset
+
+ .........
+ 
+\begin_inset Formula $\mathbf{H}^{t}\left(\mathbf{r},t\right)=\frac{1}{\omega\mu}\int\left(\mathbf{k}_{T}+k_{z}\hat{\mathbf{z}}\right)\times\tilde{\mathbf{E}}^{t}\left(\mathbf{k}_{T},\omega\right)e^{i\omega t-i\mathbf{k}\cdot\mathbf{r}}d\omega d\mathbf{k}_{T}$
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula $\mathbf{\boldsymbol{\chi}}_{ee}\left(\mathbf{r},t\right)=\int\tilde{\boldsymbol{\chi}}_{ee}\left(\mathbf{k}_{T},\omega\right)e^{i\omega t-i\mathbf{k}\cdot\mathbf{r}}d\omega d\mathbf{k}_{T}$
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula $\mathbf{\boldsymbol{\chi}}_{mm}\left(\mathbf{r},t\right)=\int\tilde{\boldsymbol{\chi}}_{mm}\left(\mathbf{k}_{T},\omega\right)e^{i\omega t-i\mathbf{k}\cdot\mathbf{r}}d\omega d\mathbf{k}_{T}$
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula $\mathbf{P}_{T}\left(\mathbf{r}_{T},\omega\right)=\varepsilon_{0}\mathbf{\boldsymbol{\chi}}_{ee}\left(\mathbf{r}_{T},\omega\right)\mathbf{\overline{\mathbf{E}}}\left(\mathbf{r}_{T},\omega\right)$
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula $\mathbf{M}_{T}\left(\mathbf{r}_{T},\omega\right)=\mathbf{\boldsymbol{\chi}}_{mm}\left(\mathbf{r}_{T},\omega\right)\overline{\mathbf{H}}\left(\mathbf{r}_{T},\omega\right)$
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+-- 
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula $\mathbf{\tilde{P}}_{T}\left(\mathbf{k}_{T},\omega\right)=\varepsilon_{0}\int\tilde{\boldsymbol{\chi}}_{ee}^{T}\left(\mathbf{k}_{T}^{\prime},\omega\right)\mathbf{\overline{\tilde{\mathbf{E}}}}\left(\mathbf{k}_{T}-\mathbf{k}_{T}^{\prime},\omega\right)d\mathbf{k}_{T}^{\prime}$
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula $\mathbf{\tilde{M}}_{T}\left(\mathbf{k}_{T},\omega\right)=\int\tilde{\boldsymbol{\chi}}_{mm}^{T}\left(\mathbf{k}_{T}^{\prime},\omega\right)\mathbf{\overline{\mathbf{\tilde{H}}}}\left(\mathbf{k}_{T}-\mathbf{k}_{T}^{\prime},\omega\right)d\mathbf{k}_{T}^{\prime}$
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+--
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula $\mathbf{n}\times\nabla P_{n}\left(\mathbf{r},t\right)=\int\hat{\mathbf{z}}\times\mathbf{k}_{T}\tilde{P}_{n}\left(\mathbf{k}_{T},\omega\right)e^{i\omega t-i\mathbf{k}\cdot\mathbf{r}}d\omega d\mathbf{k}_{T}$
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula $\mathbf{n}\times\nabla M_{n}\left(\mathbf{r},t\right)=\int\hat{\mathbf{z}}\times\mathbf{k}_{T}\tilde{M}_{n}\left(\mathbf{k}_{T},\omega\right)e^{i\omega t-i\mathbf{k}\cdot\mathbf{r}}d\omega d\mathbf{k}_{T}$
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula $\tilde{M}_{n}\left(\mathbf{k}_{T},\omega\right)=\int\tilde{\boldsymbol{\chi}}_{mm}^{z}\left(\mathbf{k}_{T}^{\prime},\omega\right)\mathbf{\overline{\mathbf{\tilde{H}}}}\left(\mathbf{k}_{T}-\mathbf{k}_{T}^{\prime},\omega\right)d\mathbf{k}_{T}^{\prime}$
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula $\tilde{P}_{n}\left(\mathbf{k}_{T},\omega\right)=\varepsilon_{0}\int\tilde{\boldsymbol{\chi}}_{ee}^{z}\left(\mathbf{k}_{T}^{\prime},\omega\right)\mathbf{\overline{\mathbf{\tilde{E}}}}\left(\mathbf{k}_{T}-\mathbf{k}_{T}^{\prime},\omega\right)d\mathbf{k}_{T}^{\prime}$
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+--
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula $\frac{1}{\omega\mu}\hat{\mathbf{z}}\times\left(-\left(\mathbf{k}_{T}+k_{z}\hat{\mathbf{z}}\right)\times\tilde{\mathbf{E}}^{i}\left(\mathbf{k}_{T},\omega\right)-\left(\mathbf{k}_{T}-k_{z}\hat{\mathbf{z}}\right)\times\tilde{\mathbf{E}}^{r}\left(\mathbf{k}_{T},\omega\right)+\left(\mathbf{k}_{T}+k_{z}\hat{\mathbf{z}}\right)\times\tilde{\mathbf{E}}^{t}\left(\mathbf{k}_{T},\omega\right)\right)=\frac{1}{2}i\omega\varepsilon_{0}\int\tilde{\boldsymbol{\chi}}_{ee}^{T}\left(\mathbf{k}_{T}-\mathbf{k}_{T}^{\prime},\omega\right)\left[\tilde{\mathbf{E}}^{i}\left(\mathbf{k}_{T}^{\prime},\omega\right)+\tilde{\mathbf{E}}^{r}\left(\mathbf{k}_{T}^{\prime},\omega\right)+\tilde{\mathbf{E}}^{t}\left(\mathbf{k}_{T}^{\prime},\omega\right)\right]d\mathbf{k}_{T}^{\prime}$
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula $-\frac{1}{2\omega\mu}\hat{\mathbf{z}}\times\mathbf{k}_{T}\int\tilde{\boldsymbol{\chi}}_{mm}^{z}\left(\mathbf{k}_{T}^{\prime}-\mathbf{k}_{T},\omega\right)\left[\left(\mathbf{k}_{T}^{\prime}+k_{z}^{\prime}\hat{\mathbf{z}}\right)\times\tilde{\mathbf{E}}^{i}\left(\mathbf{k}_{T}^{\prime},\omega\right)+\left(\mathbf{k}_{T}^{\prime}-k_{z}^{\prime}\hat{\mathbf{z}}\right)\times\tilde{\mathbf{E}}^{r}\left(\mathbf{k}_{T}^{\prime},\omega\right)+\left(\mathbf{k}_{T}^{\prime}+k_{z}^{\prime}\hat{\mathbf{z}}\right)\times\tilde{\mathbf{E}}^{t}\left(\mathbf{k}_{T}^{\prime},\omega\right)\right]d\mathbf{k}_{T}^{\prime}$
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula $\mathbf{\hat{z}}\times\left(-\tilde{\mathbf{E}}^{i}\left(\mathbf{k}_{T},\omega\right)-\tilde{\mathbf{E}}^{r}\left(\mathbf{k}_{T},\omega\right)+\tilde{\mathbf{E}}^{t}\left(\mathbf{k}_{T},\omega\right)\right)=-\frac{1}{2}\mu_{0}i\omega\int\frac{1}{\omega\mu}\tilde{\boldsymbol{\chi}}_{mm}\left(\mathbf{k}_{T}-\mathbf{k}_{T}^{\prime},\omega\right)\left[\left(\mathbf{k}_{T}^{\prime}+k_{z}^{\prime}\hat{\mathbf{z}}\right)\times\tilde{\mathbf{E}}^{i}\left(\mathbf{k}_{T}^{\prime},\omega\right)+\left(\mathbf{k}_{T}^{\prime}-k_{z}^{\prime}\hat{\mathbf{z}}\right)\times\tilde{\mathbf{E}}^{r}\left(\mathbf{k}_{T}^{\prime},\omega\right)+\left(\mathbf{k}_{T}^{\prime}+k_{z}^{\prime}\hat{\mathbf{z}}\right)\times\tilde{\mathbf{E}}^{t}\left(\mathbf{k}_{T}^{\prime},\omega\right)\right]d\mathbf{k}_{T}^{\prime}$
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula $-\frac{1}{2\epsilon_{0}}\varepsilon_{0}\hat{\mathbf{z}}\times\mathbf{k}_{T}\int\tilde{\boldsymbol{\chi}}_{ee}^{z}\left(\mathbf{k}_{T}^{\prime}-\mathbf{k}_{T},\omega\right)\left[\tilde{\mathbf{E}}^{i}\left(\mathbf{k}_{T}^{\prime},\omega\right)+\tilde{\mathbf{E}}^{r}\left(\mathbf{k}_{T}^{\prime},\omega\right)+\tilde{\mathbf{E}}^{t}\left(\mathbf{k}_{T}^{\prime},\omega\right)\right]d\mathbf{k}_{T}^{\prime}$
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+--
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula $\nabla\cdot\mathbf{E}=0$
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula $\mathbf{k}\cdot\mathbf{E}=\mathbf{k}_{T}\cdot\mathbf{E}_{T}+k_{z}E_{z}=0$
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula $\mathbf{k}_{T}\cdot\mathbf{E}_{T}^{t}+k_{z}E_{z}^{t}=0$
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula $\mathbf{k}_{T}\cdot\mathbf{E}_{T}^{r}-k_{z}E_{z}^{r}=0$
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+--
+\end_layout
+
+\begin_layout Standard
+--
+\end_layout
+
+\end_body
+\end_document

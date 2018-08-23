@@ -1,0 +1,1007 @@
+#LyX 2.1 created this file. For more info see http://www.lyx.org/
+\lyxformat 474
+\begin_document
+\begin_header
+\textclass article
+\use_default_options true
+\maintain_unincluded_children false
+\language english
+\language_package default
+\inputencoding auto
+\fontencoding global
+\font_roman default
+\font_sans default
+\font_typewriter default
+\font_math auto
+\font_default_family default
+\use_non_tex_fonts false
+\font_sc false
+\font_osf false
+\font_sf_scale 100
+\font_tt_scale 100
+\graphics default
+\default_output_format default
+\output_sync 0
+\bibtex_command default
+\index_command default
+\paperfontsize default
+\use_hyperref false
+\papersize default
+\use_geometry false
+\use_package amsmath 1
+\use_package amssymb 1
+\use_package cancel 1
+\use_package esint 1
+\use_package mathdots 1
+\use_package mathtools 1
+\use_package mhchem 1
+\use_package stackrel 1
+\use_package stmaryrd 1
+\use_package undertilde 1
+\cite_engine basic
+\cite_engine_type default
+\biblio_style plain
+\use_bibtopic false
+\use_indices false
+\paperorientation portrait
+\suppress_date false
+\justification true
+\use_refstyle 1
+\index Index
+\shortcut idx
+\color #008000
+\end_index
+\secnumdepth 3
+\tocdepth 3
+\paragraph_separation indent
+\paragraph_indentation default
+\quotes_language english
+\papercolumns 1
+\papersides 1
+\paperpagestyle default
+\tracking_changes false
+\output_changes false
+\html_math_output 0
+\html_css_as_file 0
+\html_be_strict false
+\end_header
+
+\begin_body
+
+\begin_layout Standard
+\begin_inset Formula $\mathbf{n}\times\left(\mathbf{H}^{+}-\mathbf{H}^{-}\right)=\mathbf{J}_{e}+\frac{\partial}{\partial t}\mathbf{P}_{t}$
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula $\mathbf{n}\times\left(\mathbf{E}^{+}-\mathbf{E}^{-}\right)=-\mathbf{J}_{m}-\mu_{0}\frac{\partial}{\partial t}\mathbf{M}_{t}$
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+--
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula $\mathbf{P}_{t}\left(t\right)=\intop\mathbf{n}\times\left(\mathbf{H}^{+}-\mathbf{H^{-}}\right)dt=\varepsilon_{0}\mathbf{\boldsymbol{\chi}}_{ee}\left(t\right)\mathbf{\overline{\mathbf{E}}}\left(t\right)$
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula $\mathbf{M}_{t}\left(t\right)=-\frac{1}{\mu_{0}}\intop\mathbf{n}\times\left(\mathbf{E}^{+}-\mathbf{E^{-}}\right)dt=\mathbf{\boldsymbol{\chi}}_{mm}\left(t\right)\overline{\mathbf{H}}\left(t\right)$
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+--
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula $\mathbf{\overline{\mathbf{E}}}\left(t\right)=\frac{1}{2}\left(\mathbf{E}^{i}\left(t\right)+\mathbf{E}^{r}\left(t\right)+\mathbf{E}^{t}\left(t\right)\right)$
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula $\mathbf{\overline{H}}\left(t\right)=\frac{1}{2}\left(\mathbf{H}^{i}\left(t\right)+\mathbf{H}^{r}\left(t\right)+\mathbf{H}^{t}\left(t\right)\right)$
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+--
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula $\mathbf{E}^{i}=f^{i}\left(t-z/c\right)\mathbf{\hat{x}}$
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula $\mathbf{E}^{r}=f^{r}\left(t+z/c\right)\mathbf{\hat{x}}$
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula $\mathbf{E}^{t}=f^{t}\left(t-z/c\right)\mathbf{\hat{x}}$
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+--------- absorber ----
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula $\mathbf{E}^{i}\left(t\right)=E^{0}\exp\left[-\alpha^{2}\left(t-\frac{z-z_{0}}{c}\right)^{2}\right]\sin\left(\omega t\right)\hat{\mathbf{x}}$
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula $\mathbf{H}^{i}\left(t\right)=\frac{1}{\eta}E^{0}\exp\left[-\alpha^{2}\left(t-\frac{z-z_{0}}{c}\right)^{2}\right]\sin\left(\omega t\right)\hat{\mathbf{y}}$
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula $\mathbf{E}^{r}\left(t\right)=\mathbf{E}^{t}\left(t\right)=0$
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+-----------------------------
+\end_layout
+
+\begin_layout Standard
+time domain transition conditions
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula $\frac{1}{2}\varepsilon_{0}\frac{\partial}{\partial t}\left[\mathbf{\boldsymbol{\chi}}_{ee}\left(t\right)\left(\mathbf{E}^{i}+\mathbf{E}^{r}+\mathbf{E}^{t}\right)\right]=\mathbf{\hat{z}}\times\left(\mathbf{H}^{t}-\mathbf{H}^{i}-\mathbf{H}^{r}\right)$
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula $-\frac{1}{2}\mu_{0}\frac{\partial}{\partial t}\left[\mathbf{\boldsymbol{\chi}}_{mm}\left(t\right)\left(\mathbf{H}^{t}-\mathbf{H}^{i}-\mathbf{H}^{r}\right)\right]=\mathbf{\hat{z}}\times\left(-\mathbf{E}^{i}-\mathbf{E}^{r}+\mathbf{E}^{t}\right)$
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+--
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula $\frac{1}{2}\varepsilon_{0}\frac{\partial}{\partial t}\left[\mathbf{\chi}_{ee}\left(t\right)\left(E^{i}+E^{r}+E^{t}\right)\right]\mathbf{\hat{x}}=\frac{1}{\eta}\mathbf{\hat{z}}\times\left(-E^{i}+E^{r}+E^{t}\right)\mathbf{\hat{y}}$
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula $-\frac{1}{2\eta}\mu_{0}\frac{\partial}{\partial t}\left[\mathbf{\chi}_{mm}\left(t\right)\left(E^{i}-E^{r}+E^{t}\right)\right]\mathbf{\hat{y}}=\mathbf{\hat{z}}\times\left(-E^{i}-E^{r}+E^{t}\right)\hat{\mathbf{x}}$
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+--
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula $\frac{1}{2}\varepsilon_{0}\frac{\partial}{\partial t}\left[\mathbf{\chi}_{ee}\left(t\right)\left(E^{i}+E^{r}+E^{t}\right)\right]=-\frac{1}{\eta}\left(-E^{i}+E^{r}+E^{t}\right)$
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula $-\frac{1}{2\eta}\mu_{0}\frac{\partial}{\partial t}\left[\mathbf{\chi}_{mm}\left(t\right)\left(E^{i}-E^{r}+E^{t}\right)\right]=\left(-E^{i}-E^{r}+E^{t}\right)$
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+--
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula $\mathbf{\chi}_{ee}\left(t\right)\frac{\partial}{\partial t}\left(E^{i}+E^{r}+E^{t}\right)+\frac{\partial}{\partial t}\mathbf{\chi}_{ee}\left(t\right)\left(E^{i}+E^{r}+E^{t}\right)=-\frac{2}{\eta\varepsilon_{0}}\left(-E^{i}+E^{r}+E^{t}\right)$
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula $\mathbf{\chi}_{mm}\left(t\right)\frac{\partial}{\partial t}\left(E^{i}-E^{r}+E^{t}\right)+\frac{\partial}{\partial t}\mathbf{\chi}_{mm}\left(t\right)\left(E^{i}-E^{r}+E^{t}\right)=-\frac{2\eta}{\mu_{0}}\left(-E^{i}-E^{r}+E^{t}\right)$
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+-- residual analysis
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula $\frac{1}{2}\varepsilon_{0}\frac{\partial}{\partial t}\left[\left(\mathbf{\chi}_{ee}\left(t\right)+\delta\mathbf{\chi}_{ee}\left(t\right)\right)\left(E^{i}+\left(E^{r}+\delta E^{r}\right)+\left(E^{t}+\delta E^{t}\right)\right)\right]=-\frac{1}{\eta}\left(-E^{i}+\left(E^{r}+\delta E^{r}\right)+\left(E^{t}+\delta E^{t}\right)\right)$
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula $-\frac{1}{2\eta}\mu_{0}\frac{\partial}{\partial t}\left[\left(\mathbf{\chi}_{mm}\left(t\right)+\delta\mathbf{\chi}_{mm}\left(t\right)\right)\left(E^{i}-\left(E^{r}+\delta E^{r}\right)+\left(E^{t}+\delta E^{t}\right)\right)\right]=\left(-E^{i}-\left(E^{r}+\delta E^{r}\right)+\left(E^{t}+\delta E^{t}\right)\right)$
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+--use P, M as unknowns..
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula $\frac{\partial}{\partial t}P\left(t\right)=-\frac{1}{\eta}\left(-E^{i}\left(t\right)+E^{r}\left(t\right)+E^{t}\left(t\right)\right)$
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula $-\mu\frac{\partial}{\partial t}M\left(t\right)=\left(-E^{i}\left(t\right)-E^{r}\left(t\right)+E^{t}\left(t\right)\right)$
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula $\frac{1}{2}\varepsilon_{0}\mathbf{\chi}_{ee}\left(t\right)\left(E^{i}\left(t\right)+E^{r}\left(t\right)+E^{t}\left(t\right)\right)=P\left(t\right)$
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula $\frac{1}{2\eta}\mathbf{\chi}_{mm}\left(t\right)\left(E^{i}\left(t\right)-E^{r}\left(t\right)+E^{t}\left(t\right)\right)=M\left(t\right)$
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+--
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula $E^{r}\left(t\right)+E^{t}\left(t\right)=2P\left(t\right)/\varepsilon_{0}\mathbf{\chi}_{ee}\left(t\right)-E^{i}\left(t\right)$
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula $-E^{r}\left(t\right)+E^{t}\left(t\right)=2\eta M\left(t\right)/\mathbf{\chi}_{mm}\left(t\right)-E^{i}\left(t\right)$
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+--
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula $E^{r}\left(t\right)=P\left(t\right)/\varepsilon_{0}\mathbf{\chi}_{ee}\left(t\right)-\eta M\left(t\right)/\mathbf{\chi}_{mm}\left(t\right)$
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula $E^{t}\left(t\right)=P\left(t\right)/\varepsilon_{0}\mathbf{\chi}_{ee}\left(t\right)+\eta M\left(t\right)/\mathbf{\chi}_{mm}\left(t\right)-E^{i}\left(t\right)$
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+--
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula $-\eta\frac{\partial}{\partial t}P\left(t\right)=2P\left(t\right)/\varepsilon_{0}\mathbf{\chi}_{ee}\left(t\right)-2E^{i}\left(t\right)$
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula $-\mu\frac{\partial}{\partial t}M\left(t\right)=2\eta M\left(t\right)/\mathbf{\chi}_{mm}\left(t\right)-2E^{i}\left(t\right)$
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+----solution: Frobenius
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula $\frac{\partial}{\partial t}f\left(t\right)=a\left(t\right)f\left(t\right)/\left(t-t_{0}\right)+g\left(t\right)$
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula $f\left(t\right)={\displaystyle \sum_{n=1}}f_{n}\left(t-t_{0}\right)^{n}$
+\end_inset
+
+, 
+\begin_inset Formula $a\left(t\right)={\displaystyle \sum_{n=0}}a_{n}\left(t-t_{0}\right)^{n}$
+\end_inset
+
+, 
+\begin_inset Formula $g\left(t\right)={\displaystyle \sum_{n=0}}g_{n}\left(t-t_{0}\right)^{n}$
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula ${\displaystyle \sum_{n=1}n}f_{n}\left(t-t_{0}\right)^{n-1}+{\displaystyle \sum_{n=1}}{\displaystyle \sum_{m=1}}f_{m}a_{n-m}\left(t-t_{0}\right)^{n-1}-{\displaystyle \sum_{n=0}}g_{n}\left(t-t_{0}\right)^{n}=0$
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula ${\displaystyle \sum_{n=0}}\left(n+1\right)f_{n+1}\left(t-t_{0}\right)^{n}+{\displaystyle \sum_{n=0}}{\displaystyle \sum_{m=1}}f_{m}a_{n+1-m}\left(t-t_{0}\right)^{n}-{\displaystyle \sum_{n=0}}g_{n}\left(t-t_{0}\right)^{n}=0$
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula $\left(n+1\right)f_{n+1}+{\displaystyle \sum_{m=1}}f_{m}a_{n+1-m}-g_{n}=0$
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula ${\displaystyle \sum_{n=1}n}f_{n}\left(t-t_{0}\right)^{n-1}+{\displaystyle \sum_{n=1}}{\displaystyle \sum_{m=0}}f_{n-m}a_{m}\left(t-t_{0}\right)^{n-1}-{\displaystyle \sum_{n=0}}g_{n}\left(t-t_{0}\right)^{n}=0$
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula ${\displaystyle \sum_{n=0}}\left(n+1\right)f_{n+1}\left(t-t_{0}\right)^{n}+{\displaystyle \sum_{n=0}}{\displaystyle \sum_{m=0}}f_{n+1-m}a_{m}\left(t-t_{0}\right)^{n}-{\displaystyle \sum_{n=0}}g_{n}\left(t-t_{0}\right)^{n}=0$
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula $\left(n+1\right)f_{n+1}+{\displaystyle \sum_{m=0}}a_{m}f_{n+1-m}-g_{n}=0$
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula $\left(n+1\right)f_{n+1}+a_{0}f_{n+1}+{\displaystyle \sum_{m=1}}a_{m}f_{n+1-m}-g_{n}=0$
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula $\left(\left(n+1\right)+a_{0}\right)f_{n+1}+{\displaystyle \sum_{m=0}}a_{m+1}f_{n-m}-g_{n}=0$
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula $f_{n+1}=\left(-{\displaystyle \sum_{m=0}}a_{m+1}f_{n-m}+g_{n}\right)/\left(\left(n+1\right)+a_{0}\right)$
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+----------------------
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula $\frac{\partial}{\partial t}f\left(t\right)+a\left(t\right)f\left(t\right)=g\left(t\right)$
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula $\frac{\partial}{\partial t}\left[\theta\left(t\right)f\left(t\right)\right]=\theta\left(t\right)g\left(t\right)$
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula $\theta\left(t\right)=\exp\left(\int a\left(t\right)dt\right)$
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula $f\left(t\right)=\left[\int\theta\left(t\right)g\left(t\right)dt+c\right]/\theta\left(t\right)$
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+------------------------
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula $\frac{\partial}{\partial t}f\left(t\right)+a\left(t\right)f\left(t\right)/\left(t-t_{0}\right)=g\left(t\right)$
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula $\frac{\partial}{\partial t}\left[\theta\left(t\right)f\left(t\right)\right]=\theta\left(t\right)g\left(t\right)$
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula $\theta\left(t\right)=\exp\left(\int a\left(t\right)/\left(t-t_{0}\right)dt\right)$
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula $\int a\left(t\right)/\left(t-t_{0}\right)dt=\int a\left(t\right)d\ln\left(t-t_{0}\right)=a\left(t\right)\ln\left(t-t_{0}\right)-\int\ln\left(t-t_{0}\right)a^{\prime}\left(t\right)dt$
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+---
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula $\theta\left(t\right)=\exp\left[a\left(t\right)\ln\left(t-t_{0}\right)-\int\ln\left(t-t_{0}\right)a^{\prime}\left(t\right)dt\right]=\left(t-t_{0}\right)^{a\left(t\right)}/\exp\left[\int\ln\left(t-t_{0}\right)a^{\prime}\left(t\right)dt\right]$
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula $\int a\left(t\right)/\left(t-t_{0}\right)dt=\int a\left(t\right)d\ln|t-t_{0}|=a\left(t\right)\ln|t-t_{0}|-\int\ln|t-t_{0}|a^{\prime}\left(t\right)dt$
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula $\theta\left(t\right)=\exp\left[a\left(t\right)\ln|t-t_{0}|-\int\ln|t-t_{0}|a^{\prime}\left(t\right)dt\right]=|t-t_{0}|^{a\left(t\right)}/\exp\left[\int\ln|t-t_{0}|a^{\prime}\left(t\right)dt\right]$
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula $f\left(t\right)=\left[\int\theta\left(t\right)g\left(t\right)dt+c\right]/\theta\left(t\right)$
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+---
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula $t\rightarrow t_{0}$
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula $\ln\theta\left(t\right)=a\left(t\right)\ln|t-t_{0}|-\int\ln|t-t_{0}|a^{\prime}\left(t\right)dt$
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula $\theta^{\prime}\left(t\right)/\theta\left(t\right)=a\left(t\right)/\left(t-t_{0}\right)$
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula $f\left(t\right)=\theta\left(t\right)g\left(t\right)/\theta^{\prime}\left(t\right)=\left(t-t_{0}\right)g\left(t\right)/a\left(t\right)$
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+-
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula $a\left(t_{0}\right)<0$
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula $\int\theta\left(t\right)dt/\theta\left(t\right)=|t-t_{0}|^{-a\left(t\right)}\int|t-t_{0}|^{+a\left(t\right)}dt$
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula $f=x\int_{1}^{x}1/tdt\rightarrow f\left(0\right)=0,\:f^{\prime}\left(0\right)=\int_{0}^{x}1/tdt+1=\infty$
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula $\frac{\partial}{\partial t}f_{0}\left(t\right)+a\left(t_{0}\right)f_{0}\left(t\right)/\left(t-t_{0}\right)=g\left(t_{0}\right)$
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+
+\family roman
+\series medium
+\shape up
+\size normal
+\emph off
+\bar no
+\strikeout off
+\uuline off
+\uwave off
+\noun off
+\color none
+\begin_inset Formula $f\left(t\right)=f_{0}\left(t\right)+f_{1}\left(t\right)$
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+--
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula $-\frac{\partial}{\partial t}f\left(T-t\right)+a\left(T-t\right)f\left(T-t\right)/\left(T-t-t_{0}\right)=g\left(T-t\right)$
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+--
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula $E_{r}=0\rightarrow P=-M,\chi_{mm}=-\chi_{ee}$
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+--
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula $\frac{\partial}{\partial t}f\left(t\right)+a\left(t\right)f\left(t\right)/\left(t-t_{0}\right)=g\left(t\right)$
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula $\left(t-t_{0}\right)\frac{\partial}{\partial t}f\left(t\right)+a\left(t\right)f\left(t\right)=\left(t-t_{0}\right)g\left(t\right)$
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula $\frac{\partial}{\partial t}\left(t-t_{0}\right)f\left(t\right)+\left(a\left(t\right)-1\right)f\left(t\right)=\left(t-t_{0}\right)g\left(t\right)$
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula $\frac{\partial}{\partial t}h\left(t\right)+\left(a\left(t\right)-1\right)h\left(t\right)/\left(t-t_{0}\right)=\left(t-t_{0}\right)g\left(t\right)$
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+--
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula $f\left(t\right)=\left(t-t_{0}\right)^{\alpha}h\left(t\right)$
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula $\left(t-t_{0}\right)^{\alpha}\frac{\partial}{\partial t}h\left(t\right)+\alpha\left(t-t_{0}\right)^{\alpha-1}h\left(t\right)+a\left(t\right)h\left(t\right)\left(t-t_{0}\right)^{\alpha-1}=g\left(t\right)$
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula $\left(t-t_{0}\right)^{\alpha}\frac{\partial}{\partial t}h\left(t\right)+\alpha\left(t-t_{0}\right)^{\alpha-1}h\left(t\right)+a\left(t\right)h\left(t\right)\left(t-t_{0}\right)^{\alpha-1}=g\left(t\right)$
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula $\frac{\partial}{\partial t}h\left(t\right)+\left(a\left(t\right)+\alpha\right)h\left(t\right)/\left(t-t_{0}\right)=g\left(t\right)/\left(t-t_{0}\right)^{\alpha}$
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+-------------------
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula $\frac{\partial}{\partial t}\left[f\left(t\right)+\delta f\left(t\right)\right]+\left[a\left(t\right)+\delta a\left(t\right)\right]\left[f\left(t\right)+\delta f\left(t\right)\right]/\left(t-t_{0}\right)=g\left(t\right)+\delta g\left(t\right)$
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula $\frac{\partial}{\partial t}\delta f\left(t\right)+\left[a\left(t\right)+\delta a\left(t\right)\right]\delta f\left(t\right)/\left(t-t_{0}\right)=-\delta a\left(t\right)f\left(t\right)/\left(t-t_{0}\right)+\delta g\left(t\right)$
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula $\delta a\left(t_{0}\right)=0$
+\end_inset
+
+ :)
+\end_layout
+
+\begin_layout Standard
+--
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula $\frac{\partial}{\partial t}f\left(t\right)+a_{0}f\left(t\right)/\left(t-t_{0}\right)=g_{0}$
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula $\theta\left(t\right)=\exp\left(\int a_{0}/\left(t-t_{0}\right)dt\right)=b\left(t-t_{0}\right)^{a_{0}}$
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula $f\left(t\right)=\left[\int\theta\left(t\right)g_{0}dt+c\right]/\theta\left(t\right)=\frac{1}{a_{0}+1}g_{0}\left(t-t_{0}\right)+c\left(t-t_{0}\right)^{-a_{0}}$
+\end_inset
+
+ or 
+\begin_inset Formula $f\left(t\right)=g_{0}\left(t-t_{0}\right)ln\left(t-t_{0}\right)+c\left(t-t_{0}\right)$
+\end_inset
+
+ for 
+\begin_inset Formula $a_{0}=-1$
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+---------------------------
+\end_layout
+
+\begin_layout Standard
+time domain algebraic model
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula $\frac{\partial}{\partial t}\mathbf{P}_{t}=\boldsymbol{\sigma}_{ee}\left(t\right)\mathbf{\overline{\mathbf{E}}}\left(t\right)\rightarrow\varepsilon_{0}\frac{\partial}{\partial t}\mathbf{\boldsymbol{\chi}}_{ee}\left(t\right)\mathbf{\overline{\mathbf{E}}}\left(t\right)=\boldsymbol{\sigma}_{ee}\left(t\right)\mathbf{\overline{\mathbf{E}}}\left(t\right)\rightarrow\mathbf{\boldsymbol{\chi}}_{ee}\left(t\right)=\int\boldsymbol{\sigma}_{ee}\left(t\right)\mathbf{\overline{\mathbf{E}}}\left(t\right)dt/\varepsilon_{0}\mathbf{\overline{\mathbf{E}}}\left(t\right)$
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula $\frac{\partial}{\partial t}\mathbf{M}_{t}=\boldsymbol{\sigma}_{mm}\left(t\right)\mathbf{\overline{\mathbf{H}}}\left(t\right)\rightarrow\frac{\partial}{\partial t}\mathbf{\boldsymbol{\chi}}_{mm}\left(t\right)\mathbf{\overline{\mathbf{H}}}\left(t\right)=\boldsymbol{\sigma}_{mm}\left(t\right)\mathbf{\overline{\mathbf{H}}}\left(t\right)\rightarrow\mathbf{\boldsymbol{\chi}}_{mm}\left(t\right)=\int\boldsymbol{\sigma}_{mm}\left(t\right)\mathbf{\overline{\mathbf{H}}}\left(t\right)dt/\mathbf{\overline{\mathbf{H}}}\left(t\right)$
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula $\mathbf{n}\times\left(\mathbf{H}^{+}-\mathbf{H}^{-}\right)=\boldsymbol{\sigma}_{ee}\left(t\right)\mathbf{\overline{\mathbf{E}}}\left(t\right)$
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula $\mathbf{n}\times\left(\mathbf{E}^{+}-\mathbf{E}^{-}\right)=-\boldsymbol{\sigma}_{mm}\left(t\right)\mathbf{\overline{\mathbf{H}}}\left(t\right)$
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula $\frac{1}{2}\boldsymbol{\sigma}_{ee}\left(t\right)\left(E^{i}+E^{r}+E^{t}\right)\mathbf{\hat{x}}=\frac{1}{\eta}\mathbf{\hat{z}}\times\left(-E^{i}+E^{r}+E^{t}\right)\mathbf{\hat{y}}$
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula $-\frac{1}{2\eta}\boldsymbol{\sigma}_{mm}\left(t\right)\left(E^{i}-E^{r}+E^{t}\right)\mathbf{\hat{y}}=\mathbf{\hat{z}}\times\left(-E^{i}-E^{r}+E^{t}\right)\hat{\mathbf{x}}$
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula $\frac{1}{2}\boldsymbol{\sigma}_{ee}\left(t\right)\left(E^{i}+E^{r}+E^{t}\right)=-\frac{1}{\eta}\left(-E^{i}+E^{r}+E^{t}\right)$
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula $-\frac{1}{2\eta}\boldsymbol{\sigma}_{mm}\left(t\right)\left(E^{i}-E^{r}+E^{t}\right)=\left(-E^{i}-E^{r}+E^{t}\right)$
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula $\left[\frac{1}{2}\boldsymbol{\sigma}_{ee}\left(t\right)+\frac{1}{\eta}\right]E^{r}+\left[\frac{1}{2}\boldsymbol{\sigma}_{ee}\left(t\right)+\frac{1}{\eta}\right]E^{t}=\left[-\frac{1}{2}\boldsymbol{\sigma}_{ee}\left(t\right)+\frac{1}{\eta}\right]E^{i}$
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula $\left[\frac{1}{2\eta}\boldsymbol{\sigma}_{mm}\left(t\right)+1\right]E^{r}-\left[\frac{1}{2\eta}\boldsymbol{\sigma}_{mm}\left(t\right)+1\right]E^{t}=\left[\frac{1}{2\eta}\boldsymbol{\sigma}_{mm}\left(t\right)-1\right]E^{i}$
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+----------------------------
+\end_layout
+
+\begin_layout Standard
+spectral domain transition conditions
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula $\mathbf{E}^{i}=\int\tilde{E}^{i}\left(\omega\right)e^{i\omega t-ik\left(\omega\right)z}d\omega\mathbf{\hat{x}}$
+\end_inset
+
+ .......
+ 
+\begin_inset Formula $\mathbf{H}^{i}=\frac{1}{\eta}\int\tilde{E}^{i}\left(\omega\right)e^{i\omega t-ik\left(\omega\right)z}d\omega\mathbf{\hat{y}}$
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula $\mathbf{E}^{r}=\int\tilde{E}^{r}\left(\omega\right)e^{i\omega t+ik\left(\omega\right)z}d\omega\mathbf{\hat{x}}$
+\end_inset
+
+ .....
+ 
+\begin_inset Formula $\mathbf{H}^{r}=-\frac{1}{\eta}\int\tilde{E}^{r}\left(\omega\right)e^{i\omega t+ik\left(\omega\right)z}d\omega\mathbf{\hat{y}}$
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula $\mathbf{E}^{t}=\int\tilde{E}^{t}\left(\omega\right)e^{i\omega t-ik\left(\omega\right)z}d\omega\mathbf{\hat{x}}$
+\end_inset
+
+ .......
+ 
+\begin_inset Formula $\mathbf{H}^{t}=\frac{1}{\eta}\int\tilde{E}^{t}\left(\omega\right)e^{i\omega t-ik\left(\omega\right)z}d\omega\mathbf{\hat{y}}$
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula $\mathbf{\boldsymbol{\chi}}_{ee}\left(t\right)=\int\tilde{\chi}_{ee}\left(\omega\right)e^{i\omega t-ik\left(\omega\right)z}d\omega$
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula $\mathbf{\boldsymbol{\chi}}_{mm}\left(t\right)=\int\tilde{\chi}_{mm}\left(\omega\right)e^{i\omega t-ik\left(\omega\right)z}d\omega$
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+--
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula $\mathbf{P}_{t}\left(t\right)=\varepsilon_{0}\mathbf{\boldsymbol{\chi}}_{ee}\left(t\right)\mathbf{\overline{\mathbf{E}}}\left(t\right)=\frac{1}{2}\varepsilon_{0}\int\int\left(\tilde{E}^{i}\left(\omega^{\prime}\right)+\tilde{E}^{r}\left(\omega^{\prime}\right)+\tilde{E}^{t}\left(\omega^{\prime}\right)\right)\tilde{\chi}_{ee}\left(\omega-\omega^{\prime}\right)d\omega^{\prime}e^{i\omega t}d\omega\mathbf{\hat{x}}$
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula $\mathbf{n}\times\left(\mathbf{H}^{+}-\mathbf{H}^{-}\right)=\frac{\partial}{\partial t}\mathbf{P}_{t}$
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula $\mathbf{\hat{z}}\times\left(\mathbf{H}^{t}-\mathbf{H}^{i}-\mathbf{H}^{r}\right)=\frac{\partial}{\partial t}\mathbf{P}_{t}$
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula $\frac{1}{\eta}\int\left(\tilde{E}^{i}\left(\omega\right)-\tilde{E}^{r}\left(\omega\right)-\tilde{E}^{t}\left(\omega\right)\right)e^{i\omega t}d\omega\mathbf{\hat{x}}=\frac{1}{2}\varepsilon_{0}\int\int\left(\tilde{E}^{i}\left(\omega^{\prime}\right)+\tilde{E}^{r}\left(\omega^{\prime}\right)+\tilde{E}^{t}\left(\omega^{\prime}\right)\right)\tilde{\chi}_{ee}\left(\omega-\omega^{\prime}\right)d\omega^{\prime}e^{i\omega t}d\omega\mathbf{\hat{x}}$
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula $\frac{1}{\eta}\left(\tilde{E}^{i}\left(\omega\right)-\tilde{E}^{r}\left(\omega\right)-\tilde{E}^{t}\left(\omega\right)\right)=\frac{1}{2}\varepsilon_{0}i\omega\int\left(\tilde{E}^{i}\left(\omega^{\prime}\right)+\tilde{E}^{r}\left(\omega^{\prime}\right)+\tilde{E}^{t}\left(\omega^{\prime}\right)\right)\tilde{\chi}_{ee}\left(\omega-\omega^{\prime}\right)d\omega^{\prime}$
+\end_inset
+
+ ***
+\end_layout
+
+\begin_layout Standard
+--
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula $\mathbf{M}_{t}\left(t\right)=\mathbf{\boldsymbol{\chi}}_{mm}\left(t\right)\overline{\mathbf{H}}\left(t\right)=\frac{1}{2\eta}\int\int\left(\tilde{E}^{i}\left(\omega^{\prime}\right)-\tilde{E}^{r}\left(\omega^{\prime}\right)+\tilde{E}^{t}\left(\omega^{\prime}\right)\right)\tilde{\chi}_{mm}\left(\omega-\omega^{\prime}\right)d\omega^{\prime}e^{i\omega t}d\omega\mathbf{\hat{y}}$
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula $\mathbf{n}\times\left(\mathbf{E}^{+}-\mathbf{E}^{-}\right)=-\mu_{0}\frac{\partial}{\partial t}\mathbf{M}_{t}$
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula $\mathbf{\hat{z}}\times\left(\mathbf{E}^{t}-\mathbf{E}^{i}-\mathbf{E}^{r}\right)=-\mu_{0}\frac{\partial}{\partial t}\mathbf{M}_{t}$
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula $\int\left(-\tilde{E}^{i}\left(\omega\right)-\tilde{E}^{r}\left(\omega\right)+\tilde{E}^{t}\left(\omega\right)\right)e^{i\omega t}d\omega\mathbf{\hat{y}}=-\frac{1}{2\eta}\mu_{0}i\omega\int\int\left(\tilde{E}^{i}\left(\omega^{\prime}\right)-\tilde{E}^{r}\left(\omega^{\prime}\right)+\tilde{E}^{t}\left(\omega^{\prime}\right)\right)\tilde{\chi}_{mm}\left(\omega-\omega^{\prime}\right)d\omega^{\prime}e^{i\omega t}d\omega\mathbf{\hat{y}}$
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula $\left(-\tilde{E}^{i}\left(\omega\right)-\tilde{E}^{r}\left(\omega\right)+\tilde{E}^{t}\left(\omega\right)\right)=-\frac{1}{2\eta}\mu_{0}i\omega\int\left(\tilde{E}^{i}\left(\omega^{\prime}\right)-\tilde{E}^{r}\left(\omega^{\prime}\right)+\tilde{E}^{t}\left(\omega^{\prime}\right)\right)\tilde{\chi}_{mm}\left(\omega-\omega^{\prime}\right)d\omega^{\prime}$
+\end_inset
+
+ ***
+\end_layout
+
+\begin_layout Standard
+--singularity extraction
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula $\frac{1}{\eta}\left(\tilde{E}^{i}\left(\omega\right)-\tilde{E}^{r}\left(\omega\right)-\tilde{E}^{t}\left(\omega\right)\right)=\frac{1}{2}\varepsilon_{0}i\omega\int\left(\tilde{E}^{i}\left(\omega^{\prime}\right)+\tilde{E}^{r}\left(\omega^{\prime}\right)+\tilde{E}^{t}\left(\omega^{\prime}\right)\right)\left[\tilde{\chi}_{ee}^{reg}\left(\omega-\omega^{\prime}\right)+\sum a_{n}sign(\omega-\omega^{\prime})e^{j(\omega-\omega^{\prime})t_{n}}\right]d\omega^{\prime}$
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula $\left(-\tilde{E}^{i}\left(\omega\right)-\tilde{E}^{r}\left(\omega\right)+\tilde{E}^{t}\left(\omega\right)\right)=-\frac{1}{2\eta}\mu_{0}i\omega\int\left(\tilde{E}^{i}\left(\omega^{\prime}\right)-\tilde{E}^{r}\left(\omega^{\prime}\right)+\tilde{E}^{t}\left(\omega^{\prime}\right)\right)\left[\tilde{\chi}_{mm}^{reg}\left(\omega-\omega^{\prime}\right)+\sum b_{n}sign(\omega-\omega^{\prime})e^{j(\omega-\omega^{\prime})t_{n}}\right]d\omega^{\prime}$
+\end_inset
+
+ 
+\end_layout
+
+\begin_layout Standard
+--
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula $\frac{1}{\eta}\left(\tilde{E}^{i}\left(\omega\right)-\tilde{E}^{r}\left(\omega\right)-\tilde{E}^{t}\left(\omega\right)\right)=\frac{1}{2}\varepsilon_{0}i\omega\int\left(\tilde{E}^{i}\left(\omega^{\prime}\right)+\tilde{E}^{r}\left(\omega^{\prime}\right)+\tilde{E}^{t}\left(\omega^{\prime}\right)\right)\tilde{\chi}_{ee}^{reg}\left(\omega-\omega^{\prime}\right)d\omega^{\prime}+\sum\frac{a_{n}}{t-t_{n}}\left(\tilde{E}^{i}\left(t\right)-\tilde{E}^{r}\left(t\right)+\tilde{E}^{t}\left(t\right)\right)$
+\end_inset
+
+
+\end_layout
+
+\end_body
+\end_document

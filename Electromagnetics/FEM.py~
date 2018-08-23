@@ -1,0 +1,521 @@
+## FEM.py finite elements
+
+
+__all__ = ["BasisTypes", "AssemblyProcess", "CoeffTypes", "BCTypes",
+            "FEMElemNode1D", "MeshGen1D", "FEM1D"]
+
+import numpy as np
+import scipy
+
+from enum import Enum
+
+
+
+class BasisTypes(Enum):
+    lagrange_1D = 1
+
+class AssemblyProcess(Enum):
+    galerkin = 1
+    
+class CoeffTypes(Enum):
+    constant = 1
+    polynomial_1D = 2
+
+class BCTypes(Enum):
+    Dirichlet = 1
+    Neumann = 2
+    Robin = 3
+
+
+class FEMElemNode1D:
+    
+    def __init__(self, elemOrder=1, basisType=BasisTypes.lagrange_1D, x0=0.0, x1=1.0):
+        self.elemOrder = elemOrder
+        self.basisType = basisType
+        self.BB_int = {}
+        self.BP_int = {}
+        
+        self.x0 = x0
+        self.x1 = x1
+        
+        self.setupBasisFuncs()
+        return
+
+
+    def setupBasisFuncs(self):
+        if self.basisType==BasisTypes.lagrange_1D:
+            from scipy.interpolate import lagrange
+            n_base = self.elemOrder+1
+            bases_poly = [None]*n_base
+            for i in range(n_base):
+                x_vec = np.linspace(self.x0, self.x1, n_base)
+                y_vec = np.zeros(n_base)
+                y_vec[i] = 1.0
+                b_i_poly = lagrange(x_vec, y_vec)
+                bases_poly[i] = b_i_poly
+            self.B_lagr = bases_poly
+    
+
+    def getOvIntdmBidnBj(self, m=0, n=0):
+        if self.basisType==BasisTypes.lagrange_1D:
+            n_base = self.elemOrder+1
+            B_int = np.zeros((n_base, n_base))
+            for i in range(n_base):
+                for j in range(n_base):
+                    p_ij = self.B_lagr[i].deriv(m)*self.B_lagr[j].deriv(n)
+                    p_ij_int = p_ij.integ()
+                    B_int[i, j] = p_ij_int(self.x1) - p_ij_int(self.x0)
+            self.BB_int[(m,n)] = B_int
+            return B_int
+        
+
+    def getOvIntdmBiP(self, m=0, poly_order=2):
+        if self.basisType==BasisTypes.lagrange_1D:
+            n_base = self.elemOrder+1
+            B_int = np.zeros((n_base, poly_order+1))
+            for i in range(n_base):
+                for j in range(poly_order+1):
+                    p_j = np.zeros(poly_order+1)
+                    p_j[poly_order-j] = 1.0
+                    p_ij = self.B_lagr[i].deriv(m)*np.poly1d(p_j)
+                    p_ij_int = p_ij.integ()
+                    B_int[i, j] = p_ij_int(self.x1) - p_ij_int(self.x0)
+            self.BP_int[m] = B_int
+            return B_int
+
+        
+    def getBasisPlot(self, N=100):
+        x = np.linspace(self.x0, self.x1, N)
+        n_base = (self.elemOrder+1)
+        bases = [None]*n_base
+        if self.basisType==BasisTypes.lagrange_1D:
+            for i in range(n_base):
+                bases[i] = self.B_lagr[i](x)
+        else:
+            raise NotImplementedError()
+        return x, bases
+            
+            
+    def getFieldPlot(self, coeffs, x0, x1, N=100):
+        n_base = (self.elemOrder+1)
+        assert len(coeffs)==n_base
+        x_ = np.linspace(self.x0, self.x1, N)
+        x = np.linspace(x0, x1, N)
+        fx = np.zeros(N)
+        if self.basisType==BasisTypes.lagrange_1D:
+            for i in range(n_base):
+                fx += coeffs[i]*self.B_lagr[i](x_)
+        else:
+            raise NotImplementedError()
+        return x, fx
+        
+        
+
+        
+class MeshGen1D:
+
+    def __init__(self, x0, x1, dx_max):
+        self.x0 = x0
+        self.x1 = x1
+        self.dx_max = dx_max
+        return
+
+    def GenerateUniformMesh(self):
+        N = int((self.x1 - self.x0)/self.dx_max + 1)
+        nodes = np.linspace(self.x0, self.x1, N)
+        sides = np.zeros((N-1, 2), dtype=int)
+        sides[:, 0] = np.arange(0, N-1)
+        sides[:, 1] = np.arange(1, N)
+        nodes_labels = -np.ones(N, dtype=int)
+        nodes_labels[0] = 1
+        nodes_labels[-1] = 2
+        sides_labels = -np.ones(N-1, dtype=int)
+        
+        self.nodes = nodes
+        self.sides = sides
+        self.nodes_labels = nodes_labels
+        self.sides_labels = sides_labels
+        return nodes, sides, nodes_labels, sides_labels
+
+
+
+
+class FEM1D:
+    
+    def __init__(self):
+        return
+        
+    
+    def SetStruct(self, nodes, sides, nodelabels=None, sidelabels=None):
+        self.nodes = nodes
+        self.sides = sides
+        self.nodelabels = nodelabels
+        self.sidelabels = sidelabels
+        self.dx = nodes[sides[:,1]] - nodes[sides[:,0]]
+        
+        self.SetLabelsAssociatedSidesOrNodes()
+        self.SetNodesConnectedSides()
+        
+        self.assemblyParams = []
+        return
+        
+                
+    def SetLabelsAssociatedSidesOrNodes(self):
+        labels_sides = {}
+        n_sides = len(self.sides)
+        if self.sidelabels==None:
+            labels_sides[None] = np.arange(n_sides)
+        else:
+            labelsAll = set(self.sidelabels)
+            for label in labelsAll:
+                labels_sides[label] = np.where(self.sidelabels==label)[0]
+        self.labels_sides = labels_sides
+            
+        labels_nodes = {}
+        n_nodes = len(self.nodes)
+        if self.nodelabels==None:
+            labels_nodes[None] = np.arange(n_nodes)
+        else:
+            labelsAll = set(self.nodelabels)
+            for label in labelsAll:
+                labels_nodes[label] = np.where(self.nodelabels==label)[0]
+        self.labels_nodes = labels_nodes
+        return
+
+
+    def SetNodesConnectedSides(self):
+        n_nodes = len(self.nodes)
+        n_sides = len(self.sides)
+        nodes_connectedSides = -np.ones((n_nodes, 2), dtype=int)
+        nodes_connectedSides[self.sides[:, 0], 1] = np.arange(n_sides)
+        nodes_connectedSides[self.sides[:, 1], 0] = np.arange(n_sides)
+        self.nodes_connectedSides = nodes_connectedSides
+
+        
+    def SetGlobalIndices(self, elem_order, elem_type):
+        self.elem_order = elem_order
+        self.elem_type = elem_type
+        if elem_type==BasisTypes.lagrange_1D:
+            n_nodes = len(self.nodes)
+            n_sides = len(self.sides)
+            n_base_T = n_sides*(elem_order-1) + n_nodes
+            
+            sidesBases = np.zeros((n_sides, elem_order+1), dtype=int)
+            
+            sidesBases[:, 0] = self.sides[:, 0]
+            sidesBases[:, elem_order] = self.sides[:, 1]
+            
+            n_b_inside = elem_order-1
+    
+            if n_b_inside>0:
+                ind_last = n_nodes
+                for s in range(n_sides):
+                    sidesBases[s, 1:elem_order] = np.arange(ind_last, ind_last+n_b_inside)
+                    ind_last += n_b_inside
+            
+            ##TODO: reorder based on element locality
+            
+            self.n_base_T = n_base_T
+            self.sidesBases = sidesBases
+            return sidesBases
+        else:
+            raise NotImplementedError()
+
+
+    def DefineMatrixAssemblyProcess(self, description, label, proc, procParams):
+        """ example:description: 'mat'/'rhs'/'bc'
+                    proc=AssemblyProcess.galerkin
+                    procParams = {'coeffType':CoeffTypes.constant, 'C':2.0, 'dUi':1, 'dUj':1}
+            for integral over cell 2*dw/dx*du/dx,   
+            w=wighting function ---> U_i
+            u=basis function  -----> U_j
+            
+            'mat' ---> stifness matrix      label --> sidelabel
+            'rhs' ---> rhs                  label --> sidelabel
+            'bc'  ---> boundary condition   label --> nodelabel
+            
+            for 'bc'
+            procParams = {'bcType':BCTypes.Dirichlet, 'bcParams':bcParams}
+                bcParams:
+                    Dirichlet : 'rhs'   ---->  u(0) = rhs
+                    Neumann   : 'rhs'   ---->  u'(0) = rhs
+                    Robin     : 'sigma', 'rhs' ---> u'(0)-sigma*u(0)=rhs
+        """
+        assert description in ['mat', 'rhs', 'bc']
+        
+        self.assemblyParams.append({'description':description, 'label':label, \
+                'proc':proc, 'procParams':procParams}) 
+
+
+    def AssembleMatrix(self):
+        row, col, data = np.array([], dtype=int), np.array([], dtype=int), np.array([])
+        row_rhs, data_rhs = np.array([], dtype=int), np.array([])
+        row_preset, data_preset = np.array([], dtype=int), np.array([])
+        for assproc in self.assemblyParams:
+            description = assproc['description']
+            proc = assproc['proc']
+            if description=='mat' and proc==AssemblyProcess.galerkin:
+                label = assproc['label']
+                procParams = assproc['procParams']
+                
+                assert label in self.labels_sides
+                lab_sides = self.labels_sides[label]
+                row_, col_, data_ = self.GetGalerkinMatElems(lab_sides, procParams)
+                
+                row = np.append(row, row_)
+                col = np.append(col, col_)
+                data = np.append(data, data_)
+                
+            elif description=='rhs' and proc==AssemblyProcess.galerkin:
+                label = assproc['label']
+                procParams = assproc['procParams']
+
+                assert label in self.labels_sides
+                lab_sides = self.labels_sides[label]
+
+                row_rhs_, data_rhs_ = self.GetGalerkinRhs(lab_sides, procParams)
+
+                row_rhs = np.append(row_rhs, row_rhs_)
+                data_rhs = np.append(data_rhs, data_rhs_)
+                
+            elif description=='bc' and proc==AssemblyProcess.galerkin:
+                label = assproc['label']
+                procParams = assproc['procParams']
+
+                assert label in self.labels_nodes
+                lab_nodes = self.labels_nodes[label]
+
+                bcType = procParams['bcType']
+                bcParams = procParams['bcParams']
+                
+                if bcType==BCTypes.Dirichlet:
+                    row_ps, data_ps = self.GetGalerkinDirichlet(lab_nodes, bcParams)
+
+                    row_preset = np.append(row_preset, row_ps)
+                    data_preset = np.append(data_preset, data_ps)
+                    
+                elif bcType==BCTypes.Neumann:
+                    raise NotImplementedError()
+                elif bcType==BCTypes.Robin:
+                    raise NotImplementedError()
+                else:
+                    raise NotImplementedError()
+                
+            else:
+                raise NotImplementedError()
+            
+        #print(row, col, data, sep='\n')
+        
+        ##reset presets
+        mask = np.ones(len(row), dtype=bool)
+        if len(row_preset)>0:
+            mask = np.logical_not(row==row_preset[0])
+        for i in range(1, len(row_preset)):
+            mask = np.logical_and(mask, np.logical_not(row==row_preset[i]))
+        
+        row = row[mask]
+        col = col[mask]
+        data = data[mask]
+        
+        row = np.append(row, row_preset)
+        col = np.append(col, row_preset)
+        data = np.append(data, np.ones(len(row_preset)))
+        
+        mask = np.ones(len(row), dtype=bool)
+        if len(row_preset)>0:
+            mask_rhs = np.logical_not(row_rhs==row_preset[0])
+        for i in range(1, len(row_preset)):
+            mask_rhs = np.logical_and(mask_rhs, np.logical_not(row_rhs==row_preset[i]))
+        
+        row_rhs = row_rhs[mask_rhs]
+        data_rhs = data_rhs[mask_rhs]
+        
+        row_rhs = np.append(row_rhs, row_preset)
+        data_rhs = np.append(data_rhs, data_preset)
+        
+        ## generate sparse matrix, solve
+        A_coo = scipy.sparse.coo_matrix((data, (row, col)), shape=(self.n_base_T, self.n_base_T))
+        #print('A_coo : \n', A_coo)
+        
+        b_vec = np.zeros(self.n_base_T)
+        for i in range(len(row_rhs)):
+            b_vec[row_rhs[i]] += data_rhs[i]
+            
+        from scipy.sparse import linalg
+        A_csc = A_coo.tocsc()
+        x_res = linalg.spsolve(A_csc, b_vec)
+        
+        self.x_res = x_res
+        return x_res
+        
+        
+    def GetGalerkinMatElems(self, sides_inds, params):
+        sides = self.sides
+        nodes = self.nodes
+        dx = self.dx
+        sidesBases = self.sidesBases
+        if params['coeffType']==CoeffTypes.constant:
+            coeff = params['C']
+            dUi = params['dUi']
+            dUj = params['dUj']
+            
+            elem_order = self.elem_order
+            fem_elem = FEMElemNode1D(elem_order, basisType=self.elem_type, x0=0.0, x1=1.0)
+            ovInts = fem_elem.getOvIntdmBidnBj(m=dUi, n=dUj)
+            
+            row, col, data = [], [], []
+            for s in sides_inds:
+                mat_s = ovInts/dx[s]**(dUi+dUj-1)
+                shape = mat_s.shape
+                row_s = np.zeros(shape, dtype=int)
+                col_s = np.zeros(shape, dtype=int)
+                for i in range(shape[0]):
+                    row_s[i,:] = np.ones(shape[1], dtype=int)*sidesBases[s, i]
+                    col_s[:,i] = np.ones(shape[1], dtype=int)*sidesBases[s, i]
+                
+                #print(row_s, col_s, sep='\n')
+                
+                data_s = mat_s.reshape(shape[0]*shape[1])
+                row_s = row_s.reshape(shape[0]*shape[1])
+                col_s = col_s.reshape(shape[0]*shape[1])
+                
+                nnz_s = data_s!=0.0
+                
+                row_s = row_s[nnz_s]
+                col_s = col_s[nnz_s]
+                data_s = data_s[nnz_s]
+                
+                row.extend(row_s)
+                col.extend(col_s)
+                data.extend(data_s)
+                
+            return np.array(row), np.array(col), coeff*np.array(data)
+
+        else:
+            raise NotImplementedError()
+                    
+        
+    
+    def GetGalerkinRhs(self, sides_inds, params):
+        sides = self.sides
+        nodes = self.nodes
+        dx = self.dx
+        sidesBases = self.sidesBases
+        if params['coeffType']==CoeffTypes.constant:
+            coeff = params['C']
+            dUi = params['dUi']
+            
+            elem_order = self.elem_order
+            fem_elem = FEMElemNode1D(elem_order, basisType=self.elem_type, x0=0.0, x1=1.0)
+            BPInts = fem_elem.getOvIntdmBiP(m=dUi, poly_order=0)
+             
+            row, data = [], []
+            for s in sides_inds:
+                rhs_s = BPInts[:,0]/dx[s]**(dUi-1)
+                shape = rhs_s.shape
+                row_s = np.zeros(shape[0], dtype=int)
+                for i in range(shape[0]):
+                    row_s[i] = sidesBases[s, i]
+                                
+                nnz_s = rhs_s!=0.0
+                
+                row_s = row_s[nnz_s]
+                data_s = rhs_s[nnz_s]
+                
+                row.extend(row_s)
+                data.extend(data_s)
+                
+            return np.array(row), coeff*np.array(data)
+
+        else:
+            raise NotImplementedError()
+    
+    
+
+    def GetGalerkinDirichlet(self, lab_nodes, bcParams):
+        sides = self.sides
+        nodes = self.nodes
+        dx = self.dx
+        sidesBases = self.sidesBases
+        nodes_connectedSides = self.nodes_connectedSides
+        
+        bc_rhs = bcParams['rhs']
+        row_ps, data_ps = [], []
+        if self.elem_type==BasisTypes.lagrange_1D:
+            for n in lab_nodes:
+                if nodes_connectedSides[n, 0]<0:
+                    s = nodes_connectedSides[n, 1]
+                    assert s>=0
+                    row_ps.append(sidesBases[s, 0])
+                    data_ps.append(bc_rhs)
+            
+                elif nodes_connectedSides[n, 1]<0:
+                    s = nodes_connectedSides[n, 0]
+                    assert s>=0
+                    row_ps.append(sidesBases[s, -1])
+                    data_ps.append(bc_rhs)
+        else:
+            raise NotImplementedError()
+        
+        return np.array(row_ps), np.array(data_ps)
+    
+        
+    def GetArrangedSides(self):
+        sides = self.sides
+        nodes = self.nodes
+        dx = self.dx
+        sidesBases = self.sidesBases
+        nodes_connectedSides = self.nodes_connectedSides
+        n_sides = len(self.sides)
+        
+        n0_ind = np.argmax(nodes_connectedSides[:,0]<0)
+        assert nodes_connectedSides[n0_ind,0]<0
+        
+        s0 = nodes_connectedSides[n0_ind,1]
+        assert s0>=0
+        sides_arranged = -np.ones(n_sides)
+        _s_ind_ = 0
+        n_last = n0_ind
+        while True:
+            s_last = nodes_connectedSides[n_last, 1]
+            if s_last>=0:
+                sides_arranged[_s_ind_] = s_last
+                _s_ind_ += 1
+            else:
+                break
+            n_last = sides[s_last, 1]
+        assert np.all(sides_arranged>=0)
+        self.sides_arranged = sides_arranged
+        return sides_arranged
+        
+    
+    def GetFieldPlot(self):
+        self.GetArrangedSides()
+        shape = self.sidesBases.shape
+        x_res_ = np.zeros(shape)
+        n_sides = len(self.sides)
+        for i in range(n_sides):
+            for j in range(self.elem_order+1):
+                x_res_[i, j] = self.x_res[self.sidesBases[self.sides_arranged[i], j]]
+
+        femelem = FEMElemNode1D(elemOrder=self.elem_order, basisType=self.elem_type)
+        x, fx = [], []
+        for i in range(n_sides):
+            coeffs_i = x_res_[i, :]
+            x0, x1 = self.sides[self.sides_arranged[i]]
+            x_i, fx_i = femelem.getFieldPlot(coeffs_i, x0, x1, N=10)
+            print(x0, x1)
+            x.extend(x_i)
+            fx.extend(fx_i)
+        
+        return x, fx
+    
+    
+
+
+
+
+
+   
+
+

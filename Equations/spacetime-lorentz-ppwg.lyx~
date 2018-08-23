@@ -1,0 +1,264 @@
+#LyX 2.1 created this file. For more info see http://www.lyx.org/
+\lyxformat 474
+\begin_document
+\begin_header
+\textclass \use_default_options
+\use_default_options true
+\maintain_unincluded_children false
+\language english
+\language_package default
+\inputencoding auto
+\fontencoding global
+\font_roman default
+\font_sans default
+\font_typewriter default
+\font_math auto
+\font_default_family default
+\use_non_tex_fonts false
+\font_sc false
+\font_osf false
+\font_sf_scale 100
+\font_tt_scale 100
+\graphics default
+\default_output_format default
+\output_sync 0
+\bibtex_command default
+\index_command default
+\paperfontsize default
+\use_hyperref false
+\papersize default
+\use_geometry false
+\use_package amsmath 1
+\use_package amssymb 1
+\use_package cancel 1
+\use_package esint 1
+\use_package mathdots 1
+\use_package mathtools 1
+\use_package mhchem 1
+\use_package stackrel 1
+\use_package stmaryrd 1
+\use_package undertilde 1
+\cite_engine basic
+\cite_engine_type default
+\biblio_style plain
+\use_bibtopic false
+\use_indices false
+\paperorientation portrait
+\suppress_date false
+\justification true
+\use_refstyle 1
+\index Index
+\shortcut idx
+\color #008000
+\end_index
+\secnumdepth 2
+\tocdepth 2
+\paragraph_separation indent
+\paragraph_indentation default
+\quotes_language english
+\papercolumns 1
+\papersides 1
+\paperpagestyle default
+\tracking_changes false
+\output_changes false
+\html_math_output 0
+\html_css_as_file 0
+\html_be_strict false
+\end_header
+
+\begin_body
+
+\begin_layout Standard
+Lorentz dispersive ST medium
+\end_layout
+
+\begin_layout Standard
+Maxwell
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula $\nabla\times\mathbf{E}=-\mu\frac{\partial}{\partial t}\mathbf{H}$
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula $\nabla\times\mathbf{H}=\mathbf{J}+\frac{\partial}{\partial t}\mathbf{D}$
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula $\frac{d^{2}}{dt^{2}}\mathbf{P}+\gamma\frac{d}{dt}\mathbf{P}+\omega_{0}^{2}\mathbf{P}=ne^{2}\mathbf{E}$
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula $n=n_{0}+\Delta n\cos\left(\Delta\omega t-\Delta kz\right)$
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+----
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula $\nabla\times\nabla\times\mathbf{E}=-\mu\frac{\partial}{\partial t}\nabla\times\mathbf{H}=-\mu\frac{d^{2}}{dt^{2}}\mathbf{D}=\nabla\nabla\cdot\mathbf{E}-\nabla^{2}\mathbf{E}$
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula $\nabla\cdot\mathbf{E}=0$
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula $\nabla^{2}\mathbf{E}-\mu\frac{d^{2}}{dt^{2}}\mathbf{D}=0$
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+--
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula $\nabla^{2}\mathbf{E}-\mu\frac{d^{2}}{dt^{2}}\left(\epsilon_{0}\mathbf{E}+\mathbf{P}\right)=0$
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula $\frac{d^{2}}{dt^{2}}\mathbf{P}+\gamma\frac{d}{dt}\mathbf{P}+\omega_{0}^{2}\mathbf{P}=ne^{2}\mathbf{E}$
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula $n\left(t,z\right)=n_{0}+\Delta n\cos\left(\Delta\omega t-\Delta kz\right)$
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+--
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula $\mathbf{E}=e^{j\left(\omega t-kz\right)}\stackrel[m=-\infty]{\infty}{\sum}\mathbf{E}_{m}e^{jm\left(\Delta\omega t-\Delta kz\right)}$
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula $\mathbf{P}=e^{j\left(\omega t-kz\right)}\stackrel[m=-\infty]{\infty}{\sum}\mathbf{P}_{m}e^{jm\left(\Delta\omega t-\Delta kz\right)}$
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula $\mathbf{E}=e^{j\left(\left(\omega+\Delta\omega\right)t-\left(k+\Delta k\right)z\right)}\stackrel[m=-\infty]{\infty}{\sum}\mathbf{E}_{m}e^{j\left(m-1\right)\left(\Delta\omega t-\Delta kz\right)}$
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+---------------------------------------
+\end_layout
+
+\begin_layout Standard
+PPWG
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula $\varepsilon_{r}\left(t,\mathbf{r}\right)=\varepsilon_{r0}+\Delta\varepsilon_{r}f\left(x\right)\cos\left(\Delta\omega t-\Delta kz\right)$
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula $\varepsilon_{r}\left(t,\mathbf{r}\right)=\varepsilon_{r0}+\Delta\varepsilon_{r}\sin\left(\frac{2\pi x}{d}\right)\cos\left(\Delta\omega t-\Delta kz\right)$
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+TE:
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula $\nabla^{2}\mathbf{E}-\mu\frac{d^{2}}{dt^{2}}\mathbf{D}=0$
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula $\nabla^{2}\mathbf{E}-\mu\varepsilon_{0}\frac{d^{2}}{dt^{2}}\varepsilon_{r}\left(t,\mathbf{r}\right)\mathbf{E}=0$
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+--
+\end_layout
+
+\begin_layout Standard
+TM:
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula $\nabla\times\nabla\times\mathbf{H}=\frac{\partial}{\partial t}\nabla\times\mathbf{D}=\varepsilon_{0}\frac{\partial}{\partial t}\nabla\times\left[\varepsilon_{r}\left(t,\mathbf{r}\right)\mathbf{E}\right]=\varepsilon_{0}\frac{\partial}{\partial t}\left[\varepsilon_{r}\left(t,\mathbf{r}\right)\nabla\times\mathbf{E}+\nabla\varepsilon_{r}\left(t,\mathbf{r}\right)\times\mathbf{E}\right]$
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula $=\varepsilon_{0}\frac{\partial}{\partial t}\left[-\mu\varepsilon_{r}\left(t,\mathbf{r}\right)\frac{\partial}{\partial t}\mathbf{H}+\nabla\varepsilon_{r}\left(t,\mathbf{r}\right)\times\frac{1}{\varepsilon_{r}\left(t,\mathbf{r}\right)}\int\mathbf{\nabla\times\mathbf{H}}dt\right]=\nabla\nabla\cdot\mathbf{H}-\nabla^{2}\mathbf{H}$
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula $\nabla^{2}\mathbf{H}+\varepsilon_{0}\frac{\partial}{\partial t}\left[-\mu\varepsilon_{r}\left(t,\mathbf{r}\right)\frac{\partial}{\partial t}\mathbf{H}+\frac{\nabla\varepsilon_{r}\left(t,\mathbf{r}\right)}{\varepsilon_{r}\left(t,\mathbf{r}\right)}\times\int_{-\infty}^{t}\mathbf{\nabla\times\mathbf{H}}dt\right]=0$
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+--
+\end_layout
+
+\begin_layout Standard
+--
+\end_layout
+
+\begin_layout Standard
+--
+\end_layout
+
+\end_body
+\end_document

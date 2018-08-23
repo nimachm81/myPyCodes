@@ -1,0 +1,352 @@
+#LyX 2.0 created this file. For more info see http://www.lyx.org/
+\lyxformat 413
+\begin_document
+\begin_header
+\textclass article
+\use_default_options true
+\maintain_unincluded_children false
+\language english
+\language_package default
+\inputencoding auto
+\fontencoding global
+\font_roman default
+\font_sans default
+\font_typewriter default
+\font_default_family default
+\use_non_tex_fonts false
+\font_sc false
+\font_osf false
+\font_sf_scale 100
+\font_tt_scale 100
+
+\graphics default
+\default_output_format default
+\output_sync 0
+\bibtex_command default
+\index_command default
+\paperfontsize default
+\use_hyperref false
+\papersize default
+\use_geometry false
+\use_amsmath 1
+\use_esint 1
+\use_mhchem 1
+\use_mathdots 1
+\cite_engine basic
+\use_bibtopic false
+\use_indices false
+\paperorientation portrait
+\suppress_date false
+\use_refstyle 1
+\index Index
+\shortcut idx
+\color #008000
+\end_index
+\secnumdepth 3
+\tocdepth 3
+\paragraph_separation indent
+\paragraph_indentation default
+\quotes_language english
+\papercolumns 1
+\papersides 1
+\paperpagestyle default
+\tracking_changes false
+\output_changes false
+\html_math_output 0
+\html_css_as_file 0
+\html_be_strict false
+\end_header
+
+\begin_body
+
+\begin_layout Standard
+Maxwell equations
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula $\frac{\partial}{\partial t}\mathbf{D}=\nabla\times\mathbf{H}$
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula $\frac{\partial}{\partial t}\mathbf{B}=-\nabla\times\mathbf{E}$
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Maxwell equations in 1D
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula $\frac{\partial}{\partial t}D=-\frac{\partial}{\partial z}H$
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula $\frac{\partial}{\partial t}\mu H=-\frac{\partial}{\partial z}E$
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula $D=\epsilon E$
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+--
+\end_layout
+
+\begin_layout Standard
+Assuming permittivity is a moving step function.
+ 
+\end_layout
+
+\begin_layout Standard
+It seems everything has to be discontinuous at the boundary
+\end_layout
+
+\begin_layout Standard
+all indices below are continuous functions of space and time (the only discontin
+uity is on the boundary, or step functions)
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula $\epsilon=\epsilon_{1}U\left(-t-z/v\right)+\epsilon_{2}U\left(t+z/v\right)$
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula $D=D_{1}U\left(-t-z/v\right)+D_{2}U\left(t+z/v\right)$
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula $E=E_{1}U\left(-t-z/v\right)+E_{2}U\left(t+z/v\right)$
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula $H=H_{1}U\left(-t-z/v\right)+H_{2}U\left(t+z/v\right)$
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+--
+\end_layout
+
+\begin_layout Standard
+Replacing in the 1D Maxwell equations
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula $U\left(-t-z/v\right)\frac{\partial}{\partial t}D_{1}-D_{1}\delta\left(-t-z/v\right)+U\left(t+z/v\right)\frac{\partial}{\partial t}D_{2}+D_{2}\delta\left(t+z/v\right)=-U\left(-t-z/v\right)\frac{\partial}{\partial z}H_{1}+\frac{1}{v}H_{1}\delta\left(-t-z/v\right)-U\left(t+z/v\right)\frac{\partial}{\partial z}H_{2}-\frac{1}{v}H_{2}\delta\left(t+z/v\right)$
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula $\mu U\left(-t-z/v\right)\frac{\partial}{\partial t}H_{1}-\mu H_{1}\delta\left(-t-z/v\right)+\mu U\left(t+z/v\right)\frac{\partial}{\partial t}H_{2}+\mu H_{2}\delta\left(t+z/v\right)=-U\left(-t-z/v\right)\frac{\partial}{\partial z}E_{1}+\frac{1}{v}E_{1}\delta\left(-t-z/v\right)-U\left(t+z/v\right)\frac{\partial}{\partial z}E_{2}-\frac{1}{v}E_{2}\delta\left(t+z/v\right)$
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula $D_{1}U\left(-t-z/v\right)+D_{2}U\left(t+z/v\right)=\left[\epsilon_{1}U\left(-t-z/v\right)+\epsilon_{2}U\left(t+z/v\right)\right]\left[E_{1}U\left(-t-z/v\right)+E_{2}U\left(t+z/v\right)\right]$
+\end_inset
+
+ ...
+ (3)
+\end_layout
+
+\begin_layout Standard
+--
+\end_layout
+
+\begin_layout Standard
+looking at the discontinuous point, to get the boundary condition (the deltas
+ should match)
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula $z=-vt$
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula $-D_{1}\delta\left(-t-z/v\right)+D_{2}\delta\left(t+z/v\right)=\frac{1}{v}H_{1}\delta\left(-t-z/v\right)-\frac{1}{v}H_{2}\delta\left(t+z/v\right)$
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula $-\mu H_{1}\delta\left(-t-z/v\right)+\mu H_{2}\delta\left(t+z/v\right)=+\frac{1}{v}E_{1}\delta\left(-t-z/v\right)-\frac{1}{v}E_{2}\delta\left(t+z/v\right)$
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+--
+\end_layout
+
+\begin_layout Standard
+further simplification
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula $-D_{1}\delta\left(t+z/v\right)+D_{2}\delta\left(t+z/v\right)=\frac{1}{v}H_{1}\delta\left(t+z/v\right)-\frac{1}{v}H_{2}\delta\left(t+z/v\right)$
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula $-\mu H_{1}\delta\left(t+z/v\right)+\mu H_{2}\delta\left(t+z/v\right)=+\frac{1}{v}E_{1}\delta\left(t+z/v\right)-\frac{1}{v}E_{2}\delta\left(t+z/v\right)$
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+--
+\end_layout
+
+\begin_layout Standard
+at the discontinuity or at 
+\begin_inset Formula $z=-vt$
+\end_inset
+
+ (boundary conditions):
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula $-D_{1}+D_{2}=\frac{1}{v}\left(H_{1}-H_{2}\right)$
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula $-\mu H_{1}+\mu H_{2}=+\frac{1}{v}\left(E_{1}-E_{2}\right)$
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+--
+\end_layout
+
+\begin_layout Standard
+equation (3) gives the relation between D and E,
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula $z>-vt\rightarrow D_{2}=\epsilon_{2}E_{2}$
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula $z<-vt\rightarrow D_{1}=\epsilon_{1}E_{1}$
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+--
+\end_layout
+
+\begin_layout Standard
+Boubdary conditions:
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula $H_{1}-H_{2}=-v\left(D_{1}-D_{2}\right)$
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula $E_{1}-E_{2}=-\mu v\left(H_{1}-H_{2}\right)$
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula $D_{2}=\epsilon_{2}E_{2}$
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula $D_{1}=\epsilon_{1}E_{1}$
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+--
+\end_layout
+
+\begin_layout Standard
+at 
+\begin_inset Formula $z=-vt$
+\end_inset
+
+ ---> using 
+\begin_inset Formula $U\left(x\right)=\frac{1}{2}\left(1+\tanh\left(\alpha x\right)\right)$
+\end_inset
+
+:
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula $\frac{1}{2}D_{1}+\frac{1}{2}D_{2}=\left[\frac{1}{2}\epsilon_{1}+\frac{1}{2}\epsilon_{2}\right]\left[\frac{1}{2}E_{1}+\frac{1}{2}E_{2}\right]$
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula $D_{1}+D_{2}=\frac{1}{2}\left(\epsilon_{1}+\epsilon_{2}\right)\left(E_{1}+E_{2}\right)$
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+--
+\end_layout
+
+\end_body
+\end_document
