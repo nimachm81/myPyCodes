@@ -2,7 +2,6 @@
 __pycache__/
 *.py[cod]
 *$py.class
-*.py~
 
 # C extensions
 *.so
@@ -108,6 +107,12 @@ venv.bak/
 other/
 attachments/
 backups/
+credentials/
+
+# backup files
+*.py~
+
+
 
 
 
