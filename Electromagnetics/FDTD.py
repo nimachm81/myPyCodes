@@ -4225,7 +4225,10 @@ class FDTDYEE(Process):
             ind = vp['ind']
             r = vp['r']
             
-            v_out.append(np.copy(A[n_dir][ind]))
+            ## TODO: ind should be modified...
+            ## FutureWarning: Using a non-tuple sequence for multidimensional indexing is deprecated; 
+            ## use `arr[tuple(seq)]` instead of `arr[seq]`
+            v_out.append(np.copy(A[n_dir][ind]))    
             
             save_folder = vp["save_folder"]
             #print("save_folder : ", vp)
