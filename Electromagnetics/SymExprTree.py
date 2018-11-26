@@ -2,12 +2,13 @@
 ## Manipulating sympy expressions through expression tree
 ## utilising expr.func expr.args srepr
 
-__all__ = ["symExpr_generate_tree", "symExpr_update_tree", "symExp_replaceFunction",
+__all__ = ["symExpr_generate_tree", "symExpr_update_tree", "symExp_replaceSymbol", "symExp_replaceFunction",
             "symExp_replaceFunction_withArgs", "symExp_CompareFunctionArgs",
             "symExp_FindReplaceFunctionArgs"]
 
 
-from sympy import Function, srepr
+from sympy import Function, srepr, Symbol, latex
+from IPython.display import Math, display
 
 ###---------  sympy expression tree manipulation
 
@@ -46,6 +47,41 @@ def symExpr_update_tree(node):
     symExpr_add_branches(node)
     symExpr_update_parents(node)
     return
+
+##------------ replace symbol (useful when symbol is inside a derivative operator)
+
+def symExp_replaceSymbol_node(node, var, var_new):
+    #display(Math(latex(node[1])))
+    if node[1]==var:
+        node[1] = var_new
+        #print("var replaced!")
+        symExpr_update_tree(node)
+        return True
+    return False
+
+def symExp_replaceSymbol_walk_tree(node, var, var_new):
+    nodes_list = [node]
+    ind_next = 0
+    while True:
+        replaced = symExp_replaceSymbol_node(nodes_list[ind_next], var, var_new)
+        node_next = nodes_list[ind_next]
+        if not replaced:
+            for arg in node_next[3]:
+                if len(arg)>0:
+                    nodes_list.append(arg)
+        ind_next += 1
+        if ind_next>=len(nodes_list):
+            break
+    return 
+
+
+def symExp_replaceSymbol(expr, var, var_expr_new):
+    """It searches the expr for symbol var and replaces it with the new expression var_new
+    """
+    expr_tree = symExpr_generate_tree(expr)
+    symExp_replaceSymbol_walk_tree(expr_tree, var, var_expr_new)
+    return expr_tree[1]
+    
 
 
 ##------------ replace function (ignore its arguments)

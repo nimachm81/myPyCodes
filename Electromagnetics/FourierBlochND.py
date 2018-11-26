@@ -122,7 +122,13 @@ class PDEFourierSeriesND:
                 var_subs[i] = Sum(var_subs[i], (self.ns[j],-oo,+oo))
             
         
-        expr_new = self.expr.subs([(self.varsfourier[i], var_subs[i]) for i in range(len(self.varsfourier))])
+        #the following (commented) simple substitution does not work in the new version of sympy
+        #expr_new = self.expr.subs([(self.varsfourier[i], var_subs[i]) for i in range(len(self.varsfourier))])
+        
+        expr_new = self.expr
+        for i in range(len(self.varsfourier)):
+            expr_new = symExp_replaceSymbol(expr_new, self.varsfourier[i], var_subs[i])
+        
 
         self.varsHarm = [None]*len(self.varsfourier)
         for i in range(len(self.varsfourier)):
@@ -1754,7 +1760,11 @@ class PDEFourierSeriesND:
                         return det_
                     else:
                         log_det = self.getLogDeterminant(eigvar_vals, A_eqs_list)[0]
-                        det_ = cmath.exp(log_det - log_det_0)
+                        det_ = np.exp(log_det - log_det_0)
+                        if np.real(log_det - log_det_0) < -700:
+                            det_ = np.exp(-700)
+                        if np.real(log_det - log_det_0) > +700:
+                            det_ = np.exp(+700)
                         return det_
                 x_0 = eigvar_vals_0[0]
                 x_1 = 1.1*x_0
@@ -1794,7 +1804,8 @@ class PDEFourierSeriesND:
                         if roots_prev!=None:
                             for j in range(len(roots_prev)):
                                 for k in range(len(eigvar_vals)):
-                                    det_ /= (eigvar_vals[k] - roots_prev[j][k])
+                                    if eigvar_vals[k] != roots_prev[j][k]:
+                                        det_ /= (eigvar_vals[k] - roots_prev[j][k])
                         dets_ri.append(det_.real)
                         dets_ri.append(det_.imag)
                     return dets_ri
@@ -1803,8 +1814,16 @@ class PDEFourierSeriesND:
                     dets_ri = []
                     for i in range(len(log_dets_)):
                         det_ = np.exp(log_dets_[i])
+                        if np.real(log_dets_[i]) < -700:
+                            det_ = np.exp(-700)
+                        if np.real(log_dets_[i]) > +700:
+                            det_ = np.exp(+700)
                         if tol_relative:
                             det_ = np.exp(log_dets_[i] - log_det_0[i])
+                            if np.real(log_dets_[i] - log_det_0[i]) < -700:
+                                det_ = np.exp(-700)
+                            if np.real(log_dets_[i] - log_det_0[i]) > +700:
+                                det_ = np.exp(+700)
                         ## TODO: depending on log_det_0 might return a math range error
                         if roots_prev!=None:
                             for j in range(len(roots_prev)):
